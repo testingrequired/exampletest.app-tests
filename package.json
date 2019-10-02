@@ -4,7 +4,8 @@
   "description": "Webdriver tests for exampletest.app",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "test:local": "wdio wdio.local.conf.js"
   },
   "repository": {
     "type": "git",

@@ -6,6 +6,6 @@ describe("Load", () => {
 
   it("should have correct title on shared", async () => {
     await browser.url(`/_/load?payload=${payload}`);
-    assert.strictEqual(await browser.getUrl(), "https://exampletest.app/");
+    assert.strictEqual(await browser.getUrl(), `${browser.config.baseUrl}/`);
   });
 });
