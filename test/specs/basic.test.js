@@ -1,9 +1,16 @@
 import assert from "assert";
+import App from "../pageObjects/app";
 
 describe("Landing Page", () => {
+  let app;
+
+  beforeEach(() => {
+    app = new App(browser);
+
+    app.load();
+  });
+
   it("should have the correct title", () => {
-    browser.url("/");
-    const title = browser.getTitle();
-    assert.strictEqual(title, "Lemon - Home");
+    assert.strictEqual(browser.getTitle(), "Lemon - Home");
   });
 });

@@ -13,4 +13,8 @@ export default class App {
   get navMenu() {
     return new NavMenu(this.driver);
   }
+
+  load() {
+    this.driver.url("/");
+  }
 }

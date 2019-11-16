@@ -7,7 +7,7 @@ describe("Logging In", () => {
   beforeEach(() => {
     app = new App(browser);
 
-    browser.url("/");
+    app.load();
   });
 
   it("should work", () => {
