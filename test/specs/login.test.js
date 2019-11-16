@@ -11,13 +11,13 @@ describe("Logging In", () => {
   });
 
   it("should work", () => {
-    assert.strictEqual(app.navMenu.userLink.getText(), "Login");
+    assert.strictEqual(app.navMenu.userLinkText, "Login");
 
     app.navMenu.goToLogin();
 
     app.loginForm.login("testUser", "password");
 
-    assert.strictEqual(app.navMenu.userLink.getText(), "User");
+    assert.strictEqual(app.navMenu.userLinkText, "User");
 
     assert.strictEqual(browser.getUrl(), "https://exampletest.app/user");
   });
