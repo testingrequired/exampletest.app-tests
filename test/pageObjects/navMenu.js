@@ -9,7 +9,15 @@ export default class NavMenu extends PageObject {
     return this.userLink.root.getText();
   }
 
+  get logoutLink() {
+    return this.$("#logoutLink");
+  }
+
   goToLogin() {
     this.userLink.root.click();
+  }
+
+  goToLogout() {
+    this.logoutLink.root.click();
   }
 }

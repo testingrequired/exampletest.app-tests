@@ -23,5 +23,10 @@ describe("Logging In", () => {
     assert.strictEqual(app.navMenu.userLinkText, "User");
 
     assert.strictEqual(browser.getUrl(), `${browser.options.baseUrl}/user`);
+
+    app.navMenu.goToLogout();
+
+    assert.strictEqual(browser.getUrl(), `${browser.options.baseUrl}/user`);
+    assert(app.loginForm.root.isDisplayed());
   });
 });
