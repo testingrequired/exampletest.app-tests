@@ -2,6 +2,9 @@ import assert from "assert";
 import App from "../pageObjects/app";
 
 describe("Logging In", () => {
+  const username = "testUser";
+  const password = "password";
+
   let app;
 
   beforeEach(() => {
@@ -15,7 +18,7 @@ describe("Logging In", () => {
 
     app.navMenu.goToLogin();
 
-    app.loginForm.login("testUser", "password");
+    app.loginForm.login(username, password);
 
     assert.strictEqual(app.navMenu.userLinkText, "User");
 

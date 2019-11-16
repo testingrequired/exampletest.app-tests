@@ -1,17 +1,18 @@
 import LoginForm from "./loginForm";
 import NavMenu from "./navMenu";
+import PageObject from "./pageObject";
 
-export default class App {
+export default class App extends PageObject {
   constructor(driver) {
-    this.driver = driver;
+    super(driver, () => driver.$("body"));
   }
 
   get loginForm() {
-    return new LoginForm(this.driver, () => this.driver.$("#loginForm"));
+    return this.$("#loginForm", LoginForm);
   }
 
   get navMenu() {
-    return new NavMenu(this.driver, () => this.driver.$("nav"));
+    return this.$("nav", NavMenu);
   }
 
   load() {
