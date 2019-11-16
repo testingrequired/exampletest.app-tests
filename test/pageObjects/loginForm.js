@@ -1,8 +1,6 @@
-export default class LoginForm {
-  constructor(driver) {
-    this.driver = driver;
-  }
+import PageObject from "./pageObject";
 
+export default class LoginForm extends PageObject {
   get username() {
     return this.driver.$("#username");
   }
