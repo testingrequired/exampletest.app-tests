@@ -2,7 +2,7 @@ import PageObject from "./pageObject";
 
 export default class NavMenu extends PageObject {
   get userLink() {
-    return this.driver.$("#userLink");
+    return this.root.$("#userLink");
   }
 
   goToLogin() {

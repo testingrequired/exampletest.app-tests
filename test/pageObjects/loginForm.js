@@ -2,15 +2,15 @@ import PageObject from "./pageObject";
 
 export default class LoginForm extends PageObject {
   get username() {
-    return this.driver.$("#username");
+    return this.root.$("#username");
   }
 
   get password() {
-    return this.driver.$("#password");
+    return this.root.$("#password");
   }
 
   get loginButton() {
-    return this.driver.$("#loginButton");
+    return this.root.$("#loginButton");
   }
 
   fillLogin(username, password) {

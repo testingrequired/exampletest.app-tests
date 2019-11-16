@@ -7,11 +7,11 @@ export default class App {
   }
 
   get loginForm() {
-    return new LoginForm(this.driver);
+    return new LoginForm(this.driver, () => this.driver.$("#loginForm"));
   }
 
   get navMenu() {
-    return new NavMenu(this.driver);
+    return new NavMenu(this.driver, () => this.driver.$("nav"));
   }
 
   load() {
