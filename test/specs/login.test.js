@@ -1,20 +1,26 @@
-const assert = require("assert");
+import assert from "assert";
+import LoginForm from "../pageObjects/loginForm";
+import NavMenu from "../pageObjects/navMenu";
 
 describe("Logging In", () => {
+  let navMenu;
+  let loginForm;
+
   beforeEach(() => {
+    navMenu = new NavMenu(browser);
+    loginForm = new LoginForm(browser);
+
     browser.url("/");
   });
 
   it("should work", () => {
-    assert.strictEqual(browser.$("#userLink").getText(), "Login");
+    assert.strictEqual(navMenu.userLink.getText(), "Login");
 
-    browser.$("#userLink").click();
+    navMenu.goToLogin();
 
-    browser.$("#username").setValue("testUser");
+    loginForm.login("testUser", "password");
 
-    browser.$("#password").setValue("password");
-
-    browser.$("#loginButton").click();
+    assert.strictEqual(navMenu.userLink.getText(), "User");
 
     assert.strictEqual(browser.$("#userLink").getText(), "User");
 
