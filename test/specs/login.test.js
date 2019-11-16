@@ -1,28 +1,23 @@
 import assert from "assert";
-import LoginForm from "../pageObjects/loginForm";
-import NavMenu from "../pageObjects/navMenu";
+import App from "../pageObjects/app";
 
 describe("Logging In", () => {
-  let navMenu;
-  let loginForm;
+  let app;
 
   beforeEach(() => {
-    navMenu = new NavMenu(browser);
-    loginForm = new LoginForm(browser);
+    app = new App(browser);
 
     browser.url("/");
   });
 
   it("should work", () => {
-    assert.strictEqual(navMenu.userLink.getText(), "Login");
+    assert.strictEqual(app.navMenu.userLink.getText(), "Login");
 
-    navMenu.goToLogin();
+    app.navMenu.goToLogin();
 
-    loginForm.login("testUser", "password");
+    app.loginForm.login("testUser", "password");
 
-    assert.strictEqual(navMenu.userLink.getText(), "User");
-
-    assert.strictEqual(browser.$("#userLink").getText(), "User");
+    assert.strictEqual(app.navMenu.userLink.getText(), "User");
 
     assert.strictEqual(browser.getUrl(), "https://exampletest.app/user");
   });
