@@ -22,6 +22,6 @@ describe("Logging In", () => {
 
     assert.strictEqual(app.navMenu.userLinkText, "User");
 
-    assert.strictEqual(browser.getUrl(), "https://exampletest.app/user");
+    assert.strictEqual(browser.getUrl(), `${browser.options.baseUrl}/user`);
   });
 });
