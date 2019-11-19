@@ -13,7 +13,7 @@ export default class PageObject {
   }
 
   $$(selector, PageObjectClass = PageObject) {
-    const elements = this.root.elements(selector);
+    const elements = this.root.$$(selector);
 
     return elements.reduce(
       (pageObjects, element, i) =>
