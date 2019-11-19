@@ -8,17 +8,22 @@ export default class PageObject {
     });
   }
 
-  $(selector, PageObjectClass = PageObject) {
+  querySelector(selector, PageObjectClass = PageObject) {
     return new PageObjectClass(this.driver, () => this.root.$(selector));
   }
 
-  $$(selector, PageObjectClass = PageObject) {
-    const elements = this.root.$$(selector);
+  $(...args) {
+    return this.querySelector(...args);
+  }
 
-    return elements.reduce(
-      (pageObjects, element, i) =>
-        new PageObjectClass(this.driver, () => elements[i]),
-      []
-    );
+  querySelectorAll(selector, PageObjectClass = PageObject) {
+    const elements = this.root.$$(selector);
+    const reducer = (pageObjects, element, i) =>
+      new PageObjectClass(this.driver, () => elements[i]);
+    return elements.reduce(reducer, []);
+  }
+
+  $$(...args) {
+    return this.querySelectorAll(...args);
   }
 }
