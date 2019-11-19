@@ -1,4 +1,6 @@
 exports.config = {
+  // debug: true,
+  // execArgv: ["--inspect-brk=127.0.0.1:5859"],
   //
   // ====================
   // Runner Configuration
@@ -133,7 +135,7 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: "bdd",
-    timeout: 60000,
+    timeout: 6000000,
     require: ["@babel/register"]
   }
   //
