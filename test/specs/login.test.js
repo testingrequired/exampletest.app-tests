@@ -27,6 +27,6 @@ describe("Logging In", () => {
     app.navMenu.goToLogout();
 
     assert.strictEqual(browser.getUrl(), `${browser.options.baseUrl}/user`);
-    assert(app.loginForm.root.isDisplayed());
+    assert(app.loginForm.tryRoot(root => root.isDisplayed()));
   });
 });

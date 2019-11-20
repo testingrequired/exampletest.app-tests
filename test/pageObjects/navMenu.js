@@ -6,7 +6,7 @@ export default class NavMenu extends PageObject {
   }
 
   get userLinkText() {
-    return this.userLink.root.getText();
+    return this.userLink.tryRoot(root => root.getText());
   }
 
   get logoutLink() {
@@ -14,10 +14,10 @@ export default class NavMenu extends PageObject {
   }
 
   goToLogin() {
-    this.userLink.root.click();
+    this.userLink.tryRoot(root => root.click());
   }
 
   goToLogout() {
-    this.logoutLink.root.click();
+    this.logoutLink.tryRoot(root => root.click());
   }
 }

@@ -14,12 +14,12 @@ export default class LoginForm extends PageObject {
   }
 
   fillLogin(username, password) {
-    this.username.root.setValue(username);
-    this.password.root.setValue(password);
+    this.username.tryRoot(root => root.setValue(username));
+    this.password.tryRoot(root => root.setValue(password));
   }
 
   login(username, password) {
     this.fillLogin(username, password);
-    this.loginButton.root.click();
+    this.loginButton.tryRoot(root => root.click());
   }
 }
